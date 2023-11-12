@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+     - postgres_data:/var/lib/postgresql/data
+    ports:
+     - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: postgres
+      POSTGRES_DB: nest_db
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 2080:8080
+
+volumes:
+  postgres_data:
